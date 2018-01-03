@@ -20,10 +20,22 @@ limitations under the License.
 package main
 
 import (
-	"github.com/intelsdi-x/snap-plugin-lib-go/v1/plugin"
-	"github.com/intelsdi-x/snap-plugin-publisher-influxdb/influxdb"
+	"github.com/hyperpilotio/snap-plugin-publisher-influxdb/influxdb"
+	"github.com/jpra1113/snap-plugin-lib-go/v1/plugin"
+	"google.golang.org/grpc"
+)
+
+const (
+	maxMessageSize = 100 << 20
 )
 
 func main() {
-	plugin.StartPublisher(influxdb.NewInfluxPublisher(), influxdb.Name, influxdb.Version)
+	plugin.StartPublisher(
+		influxdb.NewInfluxPublisher(),
+		influxdb.Name,
+		influxdb.Version,
+		plugin.GRPCServerOptions(grpc.MaxMsgSize(maxMessageSize)),
+		plugin.GRPCServerOptions(grpc.MaxSendMsgSize(maxMessageSize)),
+		plugin.GRPCServerOptions(grpc.MaxRecvMsgSize(maxMessageSize)),
+	)
 }
