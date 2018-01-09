@@ -20,8 +20,8 @@ limitations under the License.
 package main
 
 import (
-	"github.com/hyperpilotio/snap-plugin-publisher-influxdb/influxdb"
 	"github.com/jpra1113/snap-plugin-lib-go/v1/plugin"
+	"github.com/jpra1113/snap-plugin-publisher-influxdb/influxdb"
 	"google.golang.org/grpc"
 )
 

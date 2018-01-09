@@ -1,4 +1,4 @@
-package: github.com/intelsdi-x/snap-plugin-publisher-influxdb
+package: github.com/jpra1113/snap-plugin-publisher-influxdb
 import:
 - package: github.com/Sirupsen/logrus
 - package: github.com/influxdata/influxdb
